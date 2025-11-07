@@ -1,28 +1,30 @@
-import { useState } from 'react'
+import React from 'react';
+import WorldsScroller from './components/WorldsScroller';
+import TopNav from './components/TopNav';
+import FooterHint from './components/FooterHint';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const sections = [
+    { key: 'calligraphy', title: 'Calligraphy' },
+    { key: 'graffiti', title: 'Graffiti' },
+    { key: 'type', title: 'Typeface' },
+    { key: 'neon', title: 'Neon' },
+  ];
+
+  const handleNavigate = (idx) => {
+    const container = document.querySelector('#worlds-container');
+    if (!container) return;
+    const x = idx * window.innerWidth;
+    container.scrollTo({ left: x, behavior: 'smooth' });
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className="min-h-[100svh] bg-black text-white">
+      <TopNav sections={sections} onNavigate={handleNavigate} />
+      <main className="pt-14">
+        <WorldsScroller id="worlds-container" />
+      </main>
+      <FooterHint />
     </div>
-  )
+  );
 }
-
-export default App
