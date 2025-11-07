@@ -5,10 +5,10 @@ import FooterHint from './components/FooterHint';
 
 export default function App() {
   const sections = [
-    { key: 'calligraphy', title: 'Calligraphy' },
-    { key: 'graffiti', title: 'Graffiti' },
-    { key: 'type', title: 'Typeface' },
-    { key: 'neon', title: 'Neon' },
+    { key: 'a', title: 'World A' },
+    { key: 'b', title: 'World B' },
+    { key: 'c', title: 'World C' },
+    { key: 'd', title: 'World D' },
   ];
 
   const handleNavigate = (idx) => {

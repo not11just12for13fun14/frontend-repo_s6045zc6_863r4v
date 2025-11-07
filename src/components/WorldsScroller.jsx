@@ -19,11 +19,40 @@ export default function WorldsScroller({ id }) {
     return () => el.removeEventListener('wheel', onWheel);
   }, []);
 
+  // Four worlds with specified 3D letter aesthetics
   const worlds = [
-    { key: 'calligraphy', title: 'Calligraphy', subtitle: 'Elegant strokes in flowing scripts', palette: 'A' },
-    { key: 'graffiti', title: 'Graffiti', subtitle: 'Bold tags and street energy', palette: 'B' },
-    { key: 'type', title: 'Typeface', subtitle: 'Precision of geometric letterforms', palette: 'C' },
-    { key: 'neon', title: 'Neon', subtitle: 'Glowing cursive in a night city', palette: 'D' },
+    {
+      key: 'world-a',
+      title: 'World A',
+      subtitle: 'Cursive elegance in 3D',
+      variant: 'A',
+      // Replace with a cursive A Spline scene when available
+      splineScene: 'https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode',
+    },
+    {
+      key: 'world-b',
+      title: 'World B',
+      subtitle: 'Bold chromed presence',
+      variant: 'B',
+      // Replace with a chromed B Spline scene when available
+      splineScene: 'https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode',
+    },
+    {
+      key: 'world-c',
+      title: 'World C',
+      subtitle: 'Pixel-styled dimensionality',
+      variant: 'C',
+      // Replace with a pixel C Spline scene when available
+      splineScene: 'https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode',
+    },
+    {
+      key: 'world-d',
+      title: 'World D',
+      subtitle: 'Nature-textured depth',
+      variant: 'D',
+      // Replace with a nature D Spline scene when available
+      splineScene: 'https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode',
+    },
   ];
 
   return (
@@ -31,7 +60,7 @@ export default function WorldsScroller({ id }) {
       <div className="flex h-full w-max">
         {worlds.map((w, i) => (
           <div key={w.key} className="snap-start">
-            <ParallaxWorld index={i} title={w.title} subtitle={w.subtitle} palette={w.palette} />
+            <ParallaxWorld index={i} title={w.title} subtitle={w.subtitle} variant={w.variant} splineScene={w.splineScene} />
           </div>
         ))}
       </div>
